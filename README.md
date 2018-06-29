@@ -19,11 +19,12 @@ module.exports = {
 
     plugins: {
         'hermione-global-hooks': {
-            globalBeforeEach: function() {
+            enabled: true, // by default
+            beforeEach: function() {
                 // do some staff before each test
             },
 
-            globalAfterEach: function() {
+            afterEach: function() {
                 // do some staff after each test
             }
         }

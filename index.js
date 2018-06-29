@@ -1,28 +1,23 @@
 'use strict';
 
+const parseConfig = require('./config');
+
 /**
  * @param {Object} hermione
  * @param {Object} options
  */
-module.exports = (hermione, options) => {
-    if (!options.enabled) {
+module.exports = (hermione, opts) => {
+    const config = parseConfig(opts);
+    if (!config.enabled) {
         return;
     }
 
-    const globalAfterEach = options.globalAfterEach || (() => {});
-    const globalBeforeEach = options.globalBeforeEach || (() => {});
+    const {beforeEach, afterEach} = config;
 
-    hermione.on(hermione.events.AFTER_FILE_READ, (data) => {
-        const afterEach = data.suite._afterEach.shift();
-
-        data.suite.afterEach(function() {
-            return globalAfterEach.apply(this.browser);
-        });
-
-        afterEach && data.suite._afterEach.push(afterEach);
-
-        data.suite.beforeEach(function() {
-            return globalBeforeEach.apply(this.browser);
+    hermione.on(hermione.events.AFTER_TESTS_READ, (collection) => {
+        collection.eachRootSuite((root) => {
+            beforeEach && root.beforeEach(beforeEach);
+            afterEach && root.afterEach(afterEach);
         });
     });
 };

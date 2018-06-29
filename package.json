@@ -23,5 +23,8 @@
     "eslint-config-gemini-testing": "^2.2.0",
     "mocha": "^5.2.0",
     "sinon": "^6.0.1"
+  },
+  "dependencies": {
+    "gemini-configparser": "^1.0.0"
   }
 }

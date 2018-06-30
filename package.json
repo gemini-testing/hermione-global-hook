@@ -1,5 +1,5 @@
 {
-  "name": "hermione-global-hooks",
+  "name": "hermione-global-hook",
   "version": "1.0.0",
   "description": "Plugin to use global hooks",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:gemini-testing/hermione-global-hooks.git"
+    "url": "git@github.com:gemini-testing/hermione-global-hook.git"
   },
   "keywords": [
     "hermione",

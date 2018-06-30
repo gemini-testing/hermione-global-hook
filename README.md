@@ -1,4 +1,4 @@
-# hermione-global-hooks
+# hermione-global-hook
 
 Plugin for [hermione](https://github.com/gemini-testing/hermione), which adds ability to specify global beforeEach and afterEach hooks.
 More info about hermione plugins in [hermione](https://github.com/gemini-testing/hermione#plugins).
@@ -6,7 +6,7 @@ More info about hermione plugins in [hermione](https://github.com/gemini-testing
 ## Installation
 
 ```bash
-$ npm install hermione-global-hooks --registry=http://npm.yandex-team.ru
+$ npm install hermione-global-hook --registry=http://npm.yandex-team.ru
 ```
 
 ## Configuration
@@ -18,7 +18,7 @@ module.exports = {
     // ...
 
     plugins: {
-        'hermione-global-hooks': {
+        'hermione-global-hook': {
             enabled: true, // by default
             beforeEach: function() {
                 // do some staff before each test

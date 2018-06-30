@@ -5,7 +5,7 @@ const EventEmitter = require('events');
 
 const events = {AFTER_TESTS_READ: 'after_tests_read'};
 
-describe('hermione-global-hooks', () => {
+describe('hermione-global-hook', () => {
     const mkHermioneStub = () => {
         const hermione = new EventEmitter();
         hermione.events = events;

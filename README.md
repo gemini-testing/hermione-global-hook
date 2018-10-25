@@ -6,7 +6,7 @@ More info about hermione plugins in [hermione](https://github.com/gemini-testing
 ## Installation
 
 ```bash
-$ npm install hermione-global-hook --registry=http://npm.yandex-team.ru
+$ npm install hermione-global-hook
 ```
 
 ## Configuration

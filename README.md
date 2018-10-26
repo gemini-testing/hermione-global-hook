@@ -21,11 +21,11 @@ module.exports = {
         'hermione-global-hook': {
             enabled: true, // by default
             beforeEach: function() {
-                // do some staff before each test
+                // do some stuff before each test
             },
 
             afterEach: function() {
-                // do some staff after each test
+                // do some stuff after each test
             }
         }
     },

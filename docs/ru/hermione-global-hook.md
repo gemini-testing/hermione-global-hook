@@ -29,11 +29,11 @@ npm install -D hermione-global-hook
 module.exports = {
     plugins: {
         'hermione-global-hook': {
-            beforeEach: async function() {
-                await this.browser.deleteCookie(); // Например, мы хотим всегда очищать cookies перед запуском теста
+            beforeEach: async ({browser}) => {
+                await browser.deleteCookie(); // Например, мы хотим всегда очищать cookies перед запуском теста
             },
-            afterEach: async function() {
-                await this.browser.execute(function() {
+            afterEach: async ({browser}) => {
+                await browser.execute(() => {
                     try {
                         localStorage.clear(); // И всегда очищать за собой localStorage после завершения теста
                     } catch (e) { }

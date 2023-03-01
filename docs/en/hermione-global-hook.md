@@ -29,11 +29,11 @@ Add the plugin to the `plugins` section of the `hermione` config:
 module.exports = {
     plugins: {
         'hermione-global-hook': {
-            beforeEach: async function() {
-                await this.browser.deleteCookie(); // Say, we want to always clear cookies before running a test
+            beforeEach: async ({browser}) => {
+                await browser.deleteCookie(); // Say, we want to always clear cookies before running a test
             },
-            afterEach: async function() {
-                await this.browser.execute(function() {
+            afterEach: async ({browser}) => {
+                await browser.execute(() => {
                     try {
                         localStorage.clear(); // And always clean up the localStorage after the test is completed
                     } catch (e) { }

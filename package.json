@@ -1,6 +1,6 @@
 {
   "name": "@testplane/global-hook",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Plugin to use global hooks",
   "scripts": {
     "lint": "eslint .",

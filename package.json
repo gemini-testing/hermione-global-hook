@@ -1,6 +1,6 @@
 {
-  "name": "hermione-global-hook",
-  "version": "1.0.1",
+  "name": "@testplane/global-hook",
+  "version": "0.0.1",
   "description": "Plugin to use global hooks",
   "scripts": {
     "lint": "eslint .",
@@ -8,9 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:gemini-testing/hermione-global-hook.git"
+    "url": "git@github.com:gemini-testing/testplane-global-hook.git"
   },
   "keywords": [
+    "testplane",
     "hermione",
     "plugin",
     "hooks"

@@ -1,34 +1,34 @@
-# hermione-global-hook
+# @testplane/global-hook
 
 ## Обзор
 
-Используйте плагин [hermione-global-hook][hermione-global-hook], чтобы вынести общую логику из своих тестов в специальные обработчки для `beforeEach` и `afterEach` хуков.
+Используйте плагин [@testplane/global-hook][@testplane/global-hook], чтобы вынести общую логику из своих тестов в специальные обработчки для `beforeEach` и `afterEach` хуков.
 
-Часто, перед тем как запустить очередной hermione-тест, нужно выполнить определенную подготовительную работу, например:
+Часто, перед тем как запустить очередной testplane-тест, нужно выполнить определенную подготовительную работу, например:
 * очистить все cookies;
 * почистить localStorage;
 * инициализировать какую-либо переменную теста.
 
 Чтобы не прописывать эти действия в каждом тесте, вы можете описать их в настройках плагина в виде функции для хука `beforeEach`.
 
-Аналогично, после завершения основных проверок в hermione-тесте, вы можете захотеть всегда проверять наличие ошибок в клиентском коде, срабатывание нужных метрик и т. п.
+Аналогично, после завершения основных проверок в testplane-тесте, вы можете захотеть всегда проверять наличие ошибок в клиентском коде, срабатывание нужных метрик и т. п.
 
 Чтобы не прописывать эти действия в каждом тесте, вы можете описать их в настройках плагина в виде функции для хука `afterEach`.
 
 ## Установка
 
 ```bash
-npm install -D hermione-global-hook
+npm install -D @testplane/global-hook
 ```
 
 ## Настройка
 
-Необходимо подключить плагин в разделе `plugins` конфига `hermione`:
+Необходимо подключить плагин в разделе `plugins` конфига `testplane`:
 
 ```javascript
 module.exports = {
     plugins: {
-        'hermione-global-hook': {
+        '@testplane/global-hook': {
             beforeEach: async ({browser}) => {
                 await browser.deleteCookie(); // Например, мы хотим всегда очищать cookies перед запуском теста
             },
@@ -58,9 +58,9 @@ module.exports = {
 
 ## Полезные ссылки
 
-* [Исходники плагина hermione-global-hook][hermione-global-hook]
+* [Исходники плагина @testplane/global-hook][@testplane/global-hook]
 * [Команда browser.deleteCookie](https://webdriver.io/docs/api/webdriver/#deletecookie)
 * [Команда browser.execute](https://webdriver.io/docs/api/browser/execute)
 * [Команда browser.executeAsync](https://webdriver.io/docs/api/browser/executeAsync)
 
-[hermione-global-hook]: https://github.com/gemini-testing/hermione-global-hook
+[@testplane/global-hook]: https://github.com/gemini-testing/testplane-global-hook

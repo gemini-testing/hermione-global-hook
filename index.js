@@ -3,10 +3,10 @@
 const parseConfig = require('./config');
 
 /**
- * @param {Object} hermione
+ * @param {Object} testplane
  * @param {Object} options
  */
-module.exports = (hermione, opts) => {
+module.exports = (testplane, opts) => {
     const config = parseConfig(opts);
     if (!config.enabled) {
         return;
@@ -14,7 +14,7 @@ module.exports = (hermione, opts) => {
 
     const {beforeEach, afterEach} = config;
 
-    hermione.on(hermione.events.AFTER_TESTS_READ, (collection) => {
+    testplane.on(testplane.events.AFTER_TESTS_READ, (collection) => {
         collection.eachRootSuite((root) => {
             beforeEach && root.beforeEach(beforeEach);
             afterEach && root.afterEach(afterEach);

@@ -5,12 +5,12 @@ const EventEmitter = require('events');
 
 const events = {AFTER_TESTS_READ: 'after_tests_read'};
 
-describe('hermione-global-hook', () => {
-    const mkHermioneStub = () => {
-        const hermione = new EventEmitter();
-        hermione.events = events;
+describe('testplane-global-hook', () => {
+    const mktestplaneStub = () => {
+        const testplane = new EventEmitter();
+        testplane.events = events;
 
-        return hermione;
+        return testplane;
     };
 
     const stubSuite = () => {
@@ -21,23 +21,23 @@ describe('hermione-global-hook', () => {
     };
 
     it('should be enabled by default', () => {
-        const hermione = mkHermioneStub();
+        const testplane = mktestplaneStub();
 
-        plugin(hermione);
+        plugin(testplane);
 
         const eachRootSuite = sinon.spy().named('eachRootSuite');
-        hermione.emit(events.AFTER_TESTS_READ, {eachRootSuite});
+        testplane.emit(events.AFTER_TESTS_READ, {eachRootSuite});
 
         assert.calledOnce(eachRootSuite);
     });
 
     it('should do nothing if disabled', () => {
-        const hermione = mkHermioneStub();
+        const testplane = mktestplaneStub();
 
-        plugin(hermione, {enabled: false});
+        plugin(testplane, {enabled: false});
 
         const eachRootSuite = sinon.spy().named('eachRootSuite');
-        hermione.emit(events.AFTER_TESTS_READ, {eachRootSuite});
+        testplane.emit(events.AFTER_TESTS_READ, {eachRootSuite});
 
         assert.notCalled(eachRootSuite);
     });
@@ -49,23 +49,23 @@ describe('hermione-global-hook', () => {
         it(`should set global ${hookName} hook to each root suite`, () => {
             const hook = sinon.spy().named(hookName);
 
-            const hermione = mkHermioneStub();
-            plugin(hermione, {[hookName]: hook});
+            const testplane = mktestplaneStub();
+            plugin(testplane, {[hookName]: hook});
 
             const suite = stubSuite();
             const eachRootSuite = (cb) => cb(suite);
-            hermione.emit(events.AFTER_TESTS_READ, {eachRootSuite});
+            testplane.emit(events.AFTER_TESTS_READ, {eachRootSuite});
 
             assert.calledOnceWith(suite[hookName], hook);
         });
 
         it(`should not set global ${hookName} hook if no hook set in config`, () => {
-            const hermione = mkHermioneStub();
-            plugin(hermione);
+            const testplane = mktestplaneStub();
+            plugin(testplane);
 
             const suite = stubSuite();
             const eachRootSuite = (cb) => cb(suite);
-            hermione.emit(events.AFTER_TESTS_READ, {eachRootSuite});
+            testplane.emit(events.AFTER_TESTS_READ, {eachRootSuite});
 
             assert.notCalled(suite[hookName]);
         });

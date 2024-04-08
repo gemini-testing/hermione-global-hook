@@ -2,8 +2,8 @@
 
 const {root, section, option} = require('gemini-configparser');
 
-const ENV_PREFIX = 'hermione_global_hook_';
-const CLI_PREFIX = '--hermione-global-hook-';
+const ENV_PREFIX = 'testplane_global_hook_';
+const CLI_PREFIX = '--testplane-global-hook-';
 
 const assertType = (type, name) => (value) => {
     if (value && typeof value !== type) {
